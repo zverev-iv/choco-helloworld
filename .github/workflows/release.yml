@@ -39,6 +39,6 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
         upload_url: ${{ steps.create-release.outputs.upload_url }}
-        asset_path: helloworld.portable.*.nupkg
-        asset_name: helloworld.portable.*.nupkg
+        asset_path: helloworld.portable.${GITHUB_REF:1}.nupkg
+        asset_name: helloworld.portable.${GITHUB_REF:1}.nupkg
         asset_content_type: application/zip
