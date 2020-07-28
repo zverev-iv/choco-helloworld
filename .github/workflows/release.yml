@@ -1,0 +1,44 @@
+name: HelloWorld-Release
+
+on:
+  push:
+    tags:
+    - 'v*'
+
+jobs:
+  release:
+    if: github.event_name != 'pull_request'
+    runs-on: windows-latest
+
+    steps:
+    - name: checkout code
+      id:   checkout-code
+      uses: actions/checkout@v2
+
+    - name: create choco package
+      id:   create-choco-package
+      if: success()
+      run: choco pack helloworld.portable\helloworld.portable.nuspec
+      shell: cmd
+
+    - name: create release
+      id:   create-release
+      uses: actions/create-release@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        tag_name: ${{ github.ref }}
+        release_name: Release ${{ github.ref }}
+        draft: false
+        prerelease: false
+
+    - name: upload release asset
+      id:   upload-release-asset
+      uses: actions/upload-release-asset@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        upload_url: ${{ steps.create-release.outputs.upload_url }}
+        asset_path: helloworld.portable.${GITHUB_REF:1}.nupkg
+        asset_name: helloworld.portable.${GITHUB_REF:1}.nupkg
+        asset_content_type: application/zip

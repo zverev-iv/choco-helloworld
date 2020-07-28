@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
+  <metadata>
+    <id>helloworld.portable</id>
+    <version>0.0.1</version>
+    <packageSourceUrl>https://github.com/zverev-iv/choco-helloworld</packageSourceUrl>
+    <owners>zverev-iv</owners>
+    <title>helloworld (Portable)</title>
+    <authors>zverev-iv</authors>
+    <projectUrl>https://github.com/zverev-iv/HelloWorld/</projectUrl>
+    <iconUrl>http://www.wtfpl.net/wp-content/uploads/2012/12/logo-220x1601.png</iconUrl>
+    <copyright>2020 zverev-iv</copyright>
+    <licenseUrl>http://www.wtfpl.net/txt/copying/</licenseUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <projectSourceUrl>https://github.com/zverev-iv/HelloWorld/</projectSourceUrl>
+    <tags>helloworld hello world</tags>
+    <summary>simple, safe and useless application for testing, demos, etc</summary>
+    <description>Simple "Hello World!" app, for testing package managers and installers like Chocolatey and scoop.</description>
+    <releaseNotes>it is ready</releaseNotes>
+  </metadata>
+  <files>
+    <file src="tools\**" target="tools" />
+  </files>
+</package>
