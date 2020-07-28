@@ -7,5 +7,4 @@ $packageArgs = @{}
 $packageArgs["packageName"] = $env:ChocolateyPackageName
 $packageArgs["unzipLocation"] = "$(Split-Path -parent $MyInvocation.MyCommand.Definition)"
 
-
 Install-ChocolateyZipPackage @packageArgs
