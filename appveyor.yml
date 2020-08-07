@@ -9,8 +9,8 @@ test: off
 artifacts:
 - path: '**/helloworld.portable.*.nupkg'
   name: Package
-deploy_script:
-- pwsh: >-
-    choco apikey --key $CHOCOAPIKEY --source https://push.chocolatey.org/
-
-    choco push
+deploy:
+- provider: Environment
+  name: Chocolatey.org
+  on:
+    APPVEYOR_REPO_TAG: true
