@@ -14,4 +14,5 @@ artifacts:
 deploy_script:
 - pwsh: >-
     choco apikey --key $env:CHOCOAPIKEY --source https://push.chocolatey.org/
+    
     choco push
