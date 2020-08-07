@@ -1,3 +1,7 @@
 version: 1.0.{build}
 build_script:
 - pwsh: choco pack helloworld.portable/helloworld.portable.nuspec
+test: off
+artifacts:
+- path: '**/helloworld.portable.*.nupkg'
+  name: Package
